@@ -26,5 +26,6 @@ RUN echo "Match User irc" >> /etc/ssh/sshd_config && \
     echo "    ForceCommand tmux new-session -A -s irc irssi" >> /etc/ssh/sshd_config
     
 EXPOSE 22
+EXPOSE 4000-4010
 
 CMD ["/usr/sbin/sshd", "-D"]
