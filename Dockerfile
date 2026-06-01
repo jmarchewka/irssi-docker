@@ -4,6 +4,9 @@ RUN apt-get update && apt-get install -y \
     irssi \
     openssh-server \
     tmux \
+    curl \
+    traceroute \
+    libwww-perl \
     && rm -rf /var/lib/apt/lists/*
 
 RUN usermod -s /bin/bash irc
