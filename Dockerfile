@@ -22,8 +22,9 @@ RUN usermod -d /home/irc -m irc && \
     chown -R irc:irc /home/irc
     
 # Drop into tmux+irssi on login
-RUN echo 'if [ -z "$TMUX" ]; then tmux new-session -A -s irc "irssi"; fi' >> /home/irc/.bashrc
-
+RUN echo "Match User irc" >> /etc/ssh/sshd_config && \
+    echo "    ForceCommand tmux new-session -A -s irc irssi" >> /etc/ssh/sshd_config
+    
 EXPOSE 22
 
 CMD ["/usr/sbin/sshd", "-D"]
