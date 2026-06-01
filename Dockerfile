@@ -6,6 +6,9 @@ RUN apt-get update && apt-get install -y \
     tmux \
     && rm -rf /var/lib/apt/lists/*
 
+RUN groupadd -g 1000 irc || true && \
+    useradd -m -s /bin/bash -g 1000 irc
+
 RUN useradd -m -s /bin/bash irc
 
 # SSH hardening: no root, no passwords
