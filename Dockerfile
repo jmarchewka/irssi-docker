@@ -6,8 +6,6 @@ RUN apt-get update && apt-get install -y \
     tmux \
     && rm -rf /var/lib/apt/lists/*
 
-RUN useradd -m -s /bin/bash -g irc irc
-
 # SSH hardening: no root, no passwords
 RUN mkdir /var/run/sshd && \
     sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin no/' /etc/ssh/sshd_config && \
