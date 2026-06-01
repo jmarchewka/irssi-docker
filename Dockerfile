@@ -20,6 +20,11 @@ RUN mkdir -p /home/irc/.ssh && \
     chmod 700 /home/irc/.ssh && \
     chown -R irc:irc /home/irc/.ssh
 
+RUN usermod -d /home/irc -m irc && \
+    mkdir -p /home/irc/.ssh && \
+    chmod 700 /home/irc/.ssh && \
+    chown -R irc:irc /home/irc
+
 # Drop into tmux+irssi on login
 RUN echo 'if [ -z "$TMUX" ]; then tmux new-session -A -s irc "irssi"; fi' >> /home/irc/.bashrc
 
